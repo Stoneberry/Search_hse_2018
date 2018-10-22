@@ -15,9 +15,6 @@ from gensim.models import Word2Vec
 mystem = Mystem()
 app = Flask(__name__)
 
-stops = True
-amount = 10
-search_method = 'inverted_index'
 russian_stopwords = set(stopwords.words('russian'))
 
 with open('info_data.pickle', 'rb') as f:
@@ -257,19 +254,9 @@ def index():
 
     if request.args:
         query = request.args['words']
-
-        if 'stops' in request.args:
-            stops = request.args['stops']
-        else: stops = True
-
-        if 'amount' in request.args:
-            amount = int(request.args['amount'])
-        else:
-            amount = 10
-
-        if 'model' in request.args:
-            search_method = request.args['model']
-        else: search_method = 'inverted_index'
+        stops = request.args['stops']
+        amount = int(request.args['amount'])
+        search_method = request.args['model']
 
         global avgdl, model_w2v, model_d2v, info_data, vec_data_del, vec_data_not_del, word_count_del, word_count_not_del, russian_stopwords
 
@@ -286,8 +273,11 @@ def result():
 
     if request.args:
         query = request.args['words']
+        stops = True
+        amount = 10
+        search_method = 'inverted_index'
 
-        global stops, amount, search_method, avgdl, model_w2v, model_d2v, info_data, vec_data_del, vec_data_not_del, word_count_del, word_count_not_del, russian_stopwords
+        global avgdl, model_w2v, model_d2v, info_data, vec_data_del, vec_data_not_del, word_count_del, word_count_not_del, russian_stopwords
 
         try:
             result = search(query, search_method, avgdl, model_w2v, model_d2v, info_data, vec_data_del, vec_data_not_del, word_count_del, word_count_not_del, amount=amount, del_stop=stops, stopwords=russian_stopwords)
