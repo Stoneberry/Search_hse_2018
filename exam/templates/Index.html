@@ -128,15 +128,15 @@
  			<center><h1>Поиск</h1></center>
  			<center><div class="block5"><input type="text"  name="words" placeholder="Искать ноутбуки здесь..." size=80  required>
  		<button type="submit"></button></div></center>
- 				<div class="block2"><p><b> Кол-во ссылок:</b><br><input name="amount" type="number" min="1" max="100" ></p>
+ 				<div class="block2"><p><b> Кол-во ссылок:</b><br><input name="amount" type="number" min="1" max="100" required></p>
  					<p><b>Удалять стоп-слова:</b><Br>
-   					<input type="radio" name="stops" value="True"> Да<Br>
-   					<input type="radio" name="stops" value="False">Нет<Br></p></div>
+   					<input type="radio" name="stops" value="True" required> Да<Br>
+   					<input type="radio" name="stops" value="False" required>Нет<Br></p></div>
  				<div class="block4"><p><b>На основе чего производить поиск:</b><Br>
-   					<input type="radio" name="model" value="inverted_index"> Inverted index<Br>
-   					<input type="radio" name="model" value="word2vec"> Word2vec<Br>
-   					<input type="radio" name="model" value="doc2vec"> Doc2vec<Br>
-   					<input type="radio" name="model" value="all"> inverted_index + word2vec + doc2vec<Br></p></div>
+   					<input type="radio" name="model" value="inverted_index" required> Inverted index<Br>
+   					<input type="radio" name="model" value="word2vec" required> Word2vec<Br>
+   					<input type="radio" name="model" value="doc2vec" required> Doc2vec<Br>
+   					<input type="radio" name="model" value="all" required> inverted_index + word2vec + doc2vec<Br></p></div>
  			</div>
  		</div>
  		</form>
