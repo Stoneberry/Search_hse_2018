@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Result</title>
+  <style type="text/css">
+  
+	button {
+	  position: absolute; 
+	  top: 10;
+ 	 right: 30px;
+  	height: 34px;
+  	width: 35px;
+  	border: none;
+  	background: #f29924;
+  	border-radius: 0 5px 5px 0;
+  	cursor: pointer;
+	}
+	button:before {
+	  content: "\f002";
+	  font-family: FontAwesome;
+	  font-size: 16px;
+ 	 color: #F9F0DA;
+	}
+	
+	.block0{
+  	width: 80%;
+    height: 100%;
+    position: absolute;
+    border: 4px double #f29924; 
+    padding: 20px;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    margin: 5%;
+   }
+     input {
+ 	 height: 28px;
+ 	 padding-left: 10px;
+ 	 border: 2px solid #f29924;
+ 	 border-radius: 5px;
+ 	 outline: none;
+	 background: #Ffffff;
+ 	 color: #000000;
+ 	 margin-left: 0;
+	}
+   
+   .block5{
+  		background: #ffffff;
+  		width: 650px;
+  		height: 30px;
+  		position: relative;
+  		color: #000000;
+    	margin-top: 0px;
+    	padding: 0px; /* Поля вокруг текста */ 
+   }
+	
+  </style>
+  </head>
+ <body>
+ 	<div class="block0">
+ 			<h1><a href="http://stonewebsite.pythonanywhere.com/" target="_blank">Поиск<a></h1>
+ 			<form method="GET" action='/result'>
+ 			<div class="block5">
+ 			<input type="text"  name="words" placeholder="Искать ноутбуки здесь (пареметры по умолчанию)..." size=100  required>
+ 			<button type="submit"></button><br></div>
+ 			<br>
+			{% for name, dict, score in name %}
+			<li><a href="{{ dict['link'] }}" target="_blank">{{ dict['title'] }}<a><br></li>
+			<p>{{ dict['text'] }}<p><br>
+			{% endfor %}
+			<form>
+			<input type="button" onclick="history.back();" value="Назад"/>
+		</div>
+ </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+ <head>
+  <meta charset="utf-8">
+  <title>Search</title>
+  <style>
+   body {
+    color: #e88504;
+    margin-top: 0%;
+    background: #ffffff;
+   }
+   
+   .block0{
+  	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+   }
+   
+   .block1{
+  		background: #ffffff;
+  		width: 900px;
+  		height: 650px;
+  		color: #000000;
+    	position: absolute;
+    	top: 10;
+    	right: 0;
+   		bottom: 0;
+   	 	left: 0;
+    	margin: auto;
+    	float: left; 
+    	background-image: url(static/laptop2.png);
+    	background-repeat: no-repeat;
+    	background-size: 860px;
+    	background-position: bottom center;
+   }
+	
+	p {
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 10pt; /* Размер шрифта в пунктах */ 
+   }
+
+	.block10{
+  		background: #ffffff;
+  		width: 650px;
+  		height: 370px;
+  		color: #000000;
+    	position: absolute;
+    	top: 50px;
+    	right: 0;
+   		bottom: 0;
+   	 	left: 0;
+    	margin: auto;
+    	padding: 0px; /* Поля вокруг текста */ 
+   }
+
+	.block2{
+  		background: #ffffff;
+  		color: #000000;
+    	position: relative;
+    	width: 255px;
+    	height: 170px;
+ 		margin: 0 auto;
+ 		float: left; 
+ 		left: 0;
+ 		padding: 20px; /* Поля вокруг текста */ 
+
+   }
+
+   .block4{
+  		background: #ffffff;
+  		width: 300px;
+  		height: 170px;
+  		position: relative;
+  		color: #000000;
+    	margin: 0 auto;
+    	float: left; 
+    	padding: 20px; /* Поля вокруг текста */ 
+   }
+   .block5{
+  		background: #ffffff;
+  		width: 560px;
+  		height: 30px;
+  		position: relative;
+  		color: #000000;
+    	margin-top: 0px;
+    	padding: 20px; /* Поля вокруг текста */ 
+   }
+   
+   input {
+ 	 height: 28px;
+ 	 padding-left: 10px;
+ 	 border: 2px solid #f29924;
+ 	 border-radius: 5px;
+ 	 outline: none;
+	 background: #Ffffff;
+ 	 color: #000000;
+ 	 margin-left: 0;
+	}
+
+	button {
+	  position:  relative;
+	  top: 0;
+ 	 right: 8px;
+  	width: 34px;
+  	height: 34px;
+  	border: none;
+  	background: #f29924;
+  	border-radius: 0 5px 5px 0;
+  	cursor: pointer;
+	}
+	button:before {
+	  content: "\f002";
+	  font-family: FontAwesome;
+	  font-size: 16px;
+ 	 color: #F9F0DA;
+	}
+
+   
+  </style>
+ </head>
+ <body>
+ 	<div class="block0">
+ 	<form method="GET" action='/'>
+ 		<div class="block1">
+ 			<div class="block10">
+ 			<center><h1>Поиск</h1></center>
+ 			<center><div class="block5"><input type="text"  name="words" placeholder="Искать ноутбуки здесь..." size=80  required>
+ 		<button type="submit"></button></div></center>
+ 				<div class="block2"><p><b> Кол-во ссылок:</b><br><input name="amount" type="number" min="1" max="100" ></p>
+ 					<p><b>Удалять стоп-слова:</b><Br>
+   					<input type="radio" name="stops" value="True"> Да<Br>
+   					<input type="radio" name="stops" value="False">Нет<Br></p></div>
+ 				<div class="block4"><p><b>На основе чего производить поиск:</b><Br>
+   					<input type="radio" name="model" value="inverted_index"> Inverted index<Br>
+   					<input type="radio" name="model" value="word2vec"> Word2vec<Br>
+   					<input type="radio" name="model" value="doc2vec"> Doc2vec<Br>
+   					<input type="radio" name="model" value="all"> inverted_index + word2vec + doc2vec<Br></p></div>
+ 			</div>
+ 		</div>
+ 		</form>
+	</div>
+ </body>
+</html>
